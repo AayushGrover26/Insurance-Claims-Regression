@@ -42,6 +42,7 @@ print(x)
 print(y)
 
 #splitting the dataset
+
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x,y,
                                               test_size=0.3)
@@ -49,10 +50,13 @@ x_train, x_test, y_train, y_test = train_test_split(x,y,
 from sklearn.linear_model import LinearRegression
 
 #fitting the multiple regression model
+
 mlr=LinearRegression()
+
 mlr.fit(x_train,y_train)
 
 #prediction of test set 
+
 y_pred_mlr=mlr.predict(x_test)
 
 print(y_pred_mlr)
@@ -60,12 +64,19 @@ print(y_pred_mlr)
 # model evaluation
 
 from sklearn import metrics
+
 meanAE = metrics.mean_absolute_error(y_test,y_pred_mlr)
+
 meanSE = metrics.mean_squared_error(y_test,y_pred_mlr)
+
 RMSE = np.sqrt(metrics.mean_squared_error(y_test,y_pred_mlr))
+
 print('R squared: ',(mlr.score(x,y)*100))
+
 print('Mean absolute Error:',meanAE)
+
 print('Mean square Error:',meanSE)
+
 print('Root Mean Square Error:',RMSE)
 
 # Applying Decision Tree Model
@@ -73,6 +84,7 @@ print('Root Mean Square Error:',RMSE)
 from sklearn.tree import DecisionTreeRegressor
 
 dtr=DecisionTreeRegressor()
+
 dtr.fit(x_train,y_train)
 
 y_pred_dtr=dtr.predict(x_test)
