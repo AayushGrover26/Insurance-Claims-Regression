@@ -3,17 +3,23 @@
 # importing libs and Reading the dataset
 
 import numpy as np
+
 import pandas as pd
+
 import matplotlib.pyplot as plt
+
 %matplotlib inline
+
 import seaborn as sns
 
 df = pd.read_csv("Downloads\\insurance_claims.txt")
+
 df.head()
 
 df.info()
 
 #remove rows with missing values
+
 df=df.dropna()
 
 df['marital'].value_counts()
@@ -25,27 +31,38 @@ df['gender'].value_counts()
 #Data cleaning and preprocessing
 
 df["gender_code"] = df["gender"].apply(lambda x: 1 if x == "Male" else 0)
+
 df["marital_code"] = df["marital"].apply(lambda x: 1 if x == "Unmarried" else 0)
+
 df.head()
 
 #Creating 4 dummy columns for claim_type
 
 df["dummy_1"] = df["claim_type"].apply(lambda x: 1 if x == "Contamination" else 0)
+
 df["dummy_2"] = df["claim_type"].apply(lambda x: 1 if x == "Wind" else 0)
+
 df["dummy_3"] = df["claim_type"].apply(lambda x: 1 if x == "Fire" else 0)
+
 df["dummy_4"] = df["claim_type"].apply(lambda x: 1 if x == "Water damage" else 0)
+
 df.head()
 
 x = df.drop(['claim_amount'], axis=1)
+
 y=df['claim_amount']
+
 print(x)
+
 print(y)
 
 #splitting the dataset
 
 from sklearn.model_selection import train_test_split
+
 x_train, x_test, y_train, y_test = train_test_split(x,y,
                                               test_size=0.3)
+
 
 from sklearn.linear_model import LinearRegression
 
