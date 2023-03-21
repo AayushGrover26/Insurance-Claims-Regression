@@ -18,7 +18,7 @@ df.head()
 
 df.info()
 
-#remove rows with missing values
+# remove rows with missing values
 
 df=df.dropna()
 
@@ -28,7 +28,7 @@ df['claim_type'].value_counts()
 
 df['gender'].value_counts()
 
-#Data cleaning and preprocessing
+# Data cleaning and preprocessing
 
 df["gender_code"] = df["gender"].apply(lambda x: 1 if x == "Male" else 0)
 
@@ -36,7 +36,7 @@ df["marital_code"] = df["marital"].apply(lambda x: 1 if x == "Unmarried" else 0)
 
 df.head()
 
-#Creating 4 dummy columns for claim_type
+# Creating 4 dummy columns for claim_type
 
 df["dummy_1"] = df["claim_type"].apply(lambda x: 1 if x == "Contamination" else 0)
 
@@ -56,7 +56,7 @@ print(x)
 
 print(y)
 
-#splitting the dataset
+# splitting the dataset
 
 from sklearn.model_selection import train_test_split
 
@@ -66,13 +66,13 @@ x_train, x_test, y_train, y_test = train_test_split(x,y,
 
 from sklearn.linear_model import LinearRegression
 
-#fitting the multiple regression model
+# fitting the multiple regression model
 
 mlr=LinearRegression()
 
 mlr.fit(x_train,y_train)
 
-#prediction of test set 
+# prediction of test set 
 
 y_pred_mlr=mlr.predict(x_test)
 
@@ -129,6 +129,7 @@ print('Root Mean Square Error:',RMSE)
 from sklearn.ensemble import RandomForestRegressor
 
 rfr=RandomForestRegressor()
+
 rfr.fit(x_train,y_train)
 
 y_pred_rfr=rfr.predict(x_test)
