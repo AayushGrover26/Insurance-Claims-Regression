@@ -94,11 +94,17 @@ print(y_pred_dtr)
 # model evaluation
 
 meanAE_dtr = metrics.mean_absolute_error(y_test,y_pred_dtr)
+
 meanSE_dtr = metrics.mean_squared_error(y_test,y_pred_dtr)
+
 RMSE_dtr = np.sqrt(metrics.mean_squared_error(y_test,y_pred_dtr))
+
 print('R squared: ',(dtr.score(x,y)*100))
+
 print('Mean absolute Error:',meanAE)
+
 print('Mean square Error:',meanSE)
+
 print('Root Mean Square Error:',RMSE)
 
 # Applying RandomForestRegressor
