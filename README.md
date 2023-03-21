@@ -58,6 +58,7 @@ y_pred_mlr=mlr.predict(x_test)
 print(y_pred_mlr)
 
 # model evaluation
+
 from sklearn import metrics
 meanAE = metrics.mean_absolute_error(y_test,y_pred_mlr)
 meanSE = metrics.mean_squared_error(y_test,y_pred_mlr)
@@ -79,6 +80,7 @@ y_pred_dtr=dtr.predict(x_test)
 print(y_pred_dtr)
 
 # model evaluation
+
 meanAE_dtr = metrics.mean_absolute_error(y_test,y_pred_dtr)
 meanSE_dtr = metrics.mean_squared_error(y_test,y_pred_dtr)
 RMSE_dtr = np.sqrt(metrics.mean_squared_error(y_test,y_pred_dtr))
@@ -99,6 +101,7 @@ y_pred_rfr=rfr.predict(x_test)
 print(y_pred_rfr)
 
 # model evaluation
+
 meanAE_rfr = metrics.mean_absolute_error(y_test,y_pred_rfr)
 
 meanSE_rfr = metrics.mean_squared_error(y_test,y_pred_rfr)
