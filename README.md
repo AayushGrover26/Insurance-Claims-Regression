@@ -100,9 +100,15 @@ print(y_pred_rfr)
 
 # model evaluation
 meanAE_rfr = metrics.mean_absolute_error(y_test,y_pred_rfr)
+
 meanSE_rfr = metrics.mean_squared_error(y_test,y_pred_rfr)
+
 RMSE_rfr = np.sqrt(metrics.mean_squared_error(y_test,y_pred_rfr))
+
 print('R squared: ',(rfr.score(x,y)*100))
+
 print('Mean absolute Error:',meanAE)
+
 print('Mean square Error:',meanSE)
+
 print('Root Mean Square Error:',RMSE)
